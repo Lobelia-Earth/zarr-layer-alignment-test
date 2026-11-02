@@ -215,8 +215,21 @@ export default function Home() {
 
 
   return (
-    <main>
-      <div className='w-full h-dvh' ref={containerRef}></div>
+    <main style={{ overflow: 'hidden' }}>
+      <div style={{ width: '100%', height: '100dvh' }} ref={containerRef}></div>
+      <div style={{ position: 'absolute', top: '10px', left: '10px', zIndex: 1  }}>
+        <button type="button" onClick={() => {
+          if (window.map) {
+            window.map.flyTo({ center: [11.74, 72.55], zoom: 10.5 });
+          }
+        }}>Fly to top latitude</button>
+
+              <button type="button" onClick={() => {
+          if (window.map) {
+            window.map.flyTo({ center: [9.64, 46.75], zoom: 11.5 });
+          }
+        }}>Fly to mid latitude</button>
+      </div>
     </main>
   );
 }
